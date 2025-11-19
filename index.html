@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Chúc mừng 20/11 'Chị giáo' 💖</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #ffe6f2, #ffd4ec, #fff0f7);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* CARD: cho phép scroll nội dung */
+        .card {
+            width: 92%;
+            max-width: 500px;
+            height: 88vh;
+            /* Chiều cao cố định → bên trong scroll */
+            background: #ffffffdd;
+            backdrop-filter: blur(12px);
+            border-radius: 18px;
+            padding: 20px;
+            overflow-y: auto;
+            /* Cho phép cuộn */
+            box-shadow: 0 20px 35px rgba(255, 0, 130, 0.28);
+            position: relative;
+            z-index: 3;
+            animation: fade .8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ẢNH */
+        .photo {
+            width: 100%;
+            border-radius: 14px;
+            margin-bottom: 18px;
+            box-shadow: 0 10px 28px rgba(255, 99, 150, 0.25);
+            animation: fadeContent 1.6s ease;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #ff3e93;
+            margin-bottom: 10px;
+            text-align: center;
+            animation: fadeContent 1.2s ease;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 16px;
+            text-align: center;
+            animation: fadeContent 1.5s ease;
+        }
+
+        /* Lời chúc gõ chữ */
+        .message {
+            font-size: 15px;
+            line-height: 1.7;
+            white-space: pre-line;
+            min-height: 220px;
+            color: #333;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 18px;
+            background: #ff4d97;
+            margin-left: 4px;
+            animation: blink .6s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            50% {
+                opacity: 1;
+            }
+
+            51%,
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* Ký tên */
+        .signature {
+            text-align: right;
+            font-size: 14px;
+            color: #666;
+            margin-top: 18px;
+        }
+
+        .signature span {
+            font-weight: bold;
+            color: #ff2d89;
+        }
+
+        /* Tim bay */
+        .heart {
+            position: fixed;
+            width: 16px;
+            height: 16px;
+            background: #ff6fab;
+            transform: rotate(-45deg);
+            animation: fly 6s linear infinite;
+            opacity: 0.5;
+            z-index: 1;
+        }
+
+        .heart:before,
+        .heart:after {
+            content: "";
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: #ff6fab;
+            border-radius: 50%;
+        }
+
+        .heart:before {
+            top: -8px;
+            left: 0;
+        }
+
+        .heart:after {
+            left: 8px;
+            top: 0;
+        }
+
+        @keyframes fly {
+            0% {
+                transform: translateY(0) rotate(-45deg);
+                opacity: .6;
+            }
+
+            100% {
+                transform: translateY(-120vh) rotate(-45deg);
+                opacity: 0;
+            }
+        }
+
+        /* Sparkle lấp lánh */
+        .sparkle {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 12px white;
+            animation: sparkleMove 4s infinite linear;
+            opacity: 0.8;
+            z-index: 2;
+        }
+
+        @keyframes sparkleMove {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-100vh);
+            }
+        }
+
+        /* Hoa rơi */
+        .flower {
+            position: fixed;
+            top: -40px;
+            font-size: 24px;
+            animation: fall 6s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateX(0) rotate(0);
+            }
+
+            100% {
+                transform: translateX(80px) rotate(360deg);
+                top: 120vh;
+            }
+        }
+
+        @keyframes fadeContent {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        /* TIM BAY */
+        for (let i = 0; i < 18; i++) {
+            let h = document.createElement("div");
+            h.className = "heart";
+            h.style.left = Math.random() * 100 + "vw";
+            h.style.animationDuration = 4 + Math.random() * 4 + "s";
+            h.style.animationDelay = Math.random() * 3 + "s";
+            document.body.appendChild(h);
+        }
+
+        /* LẤP LÁNH */
+        for (let i = 0; i < 25; i++) {
+            let s = document.createElement("div");
+            s.className = "sparkle";
+            s.style.left = Math.random() * 100 + "vw";
+            s.style.top = Math.random() * 100 + "vh";
+            s.style.animationDuration = 2 + Math.random() * 3 + "s";
+            document.body.appendChild(s);
+        }
+
+        /* HOA RƠI */
+        const flowers = ["🌸", "💮", "🌺", "🌷"];
+        for (let i = 0; i < 12; i++) {
+            let f = document.createElement("div");
+            f.className = "flower";
+            f.textContent = flowers[Math.floor(Math.random() * flowers.length)];
+            f.style.left = Math.random() * 100 + "vw";
+            f.style.animationDuration = 4 + Math.random() * 4 + "s";
+            f.style.animationDelay = Math.random() * 3 + "s";
+            document.body.appendChild(f);
+        }
+    </script>
+
+    <div class="card">
+
+        <!-- ẢNH — THAY LINK CỦA EM VÀO DÒNG DƯỚI -->
+        <img src="image.jpg" class="photo" width="50%">
+
+        <h1>Chúc mừng 20/11 💐</h1>
+
+        <p class="subtitle">Gửi đến 'Chị giáo' trong lòng anh.</p>
+
+        <p class="message" id="text"></p>
+        <span class="cursor"></span>
+
+        <p class="signature">
+            Thương em,<br>
+            <span>Người luôn dõi theo em</span>
+        </p>
+    </div>
+
+    <script>
+        const content =
+            `Chúc em một ngày 20/11 thật nhẹ nhàng, xinh đẹp và đầy những điều khiến em mỉm cười.
+
+Cảm ơn em vì đã luôn dịu dàng, tốt bụng và xuất hiện trong cuộc sống của anh theo cách rất đặc biệt.
+
+Anh chúc em:
+• Luôn rạng rỡ và hạnh phúc
+• Công việc suôn sẻ
+• Ngày nào cũng đầy năng lượng dễ thương như chính em
+
+Nếu có lúc nào đó em mệt hay buồn,
+hãy nhớ rằng vẫn có một người luôn âm thầm thương em hơn em nghĩ… là anh. 💖`;
+
+        let i = 0;
+        const speed = 42;
+
+        function typeWriter() {
+            if (i < content.length) {
+                document.getElementById("text").innerHTML += content.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            }
+        }
+
+        typeWriter();
+    </script>
+
+</body>
+
+</html>
