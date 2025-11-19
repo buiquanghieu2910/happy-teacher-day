@@ -23,28 +23,25 @@
             overflow: hidden;
         }
 
-        /* CARD: cho phép scroll nội dung */
         .card {
             width: 92%;
             max-width: 500px;
             height: 88vh;
-            /* Chiều cao cố định → bên trong scroll */
             background: #ffffffdd;
             backdrop-filter: blur(12px);
             border-radius: 18px;
             padding: 20px;
             overflow-y: auto;
-            /* Cho phép cuộn */
             box-shadow: 0 20px 35px rgba(255, 0, 130, 0.28);
             position: relative;
-            z-index: 3;
+            z-index: 5;
             animation: fade .8s ease-out;
         }
 
-        @keyframes fadeIn {
+        @keyframes fade {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(25px);
             }
 
             to {
@@ -53,47 +50,46 @@
             }
         }
 
-        /* ẢNH */
         .photo {
             width: 100%;
             border-radius: 14px;
             margin-bottom: 18px;
             box-shadow: 0 10px 28px rgba(255, 99, 150, 0.25);
-            animation: fadeContent 1.6s ease;
         }
 
         h1 {
             font-size: 24px;
             color: #ff3e93;
-            margin-bottom: 10px;
             text-align: center;
-            animation: fadeContent 1.2s ease;
+            margin-bottom: 10px;
         }
 
         .subtitle {
             font-size: 14px;
+            text-align: center;
             color: #555;
             margin-bottom: 16px;
-            text-align: center;
-            animation: fadeContent 1.5s ease;
         }
 
-        /* Lời chúc gõ chữ */
+        /* TYPING FIX MƯỢT */
+        .typing-container {
+            position: relative;
+            min-height: 180px;
+        }
+
         .message {
             font-size: 15px;
             line-height: 1.7;
-            white-space: pre-line;
-            min-height: 220px;
+            white-space: pre-wrap;
             color: #333;
         }
 
         .cursor {
-            display: inline-block;
+            position: absolute;
             width: 8px;
-            height: 18px;
+            height: 20px;
             background: #ff4d97;
-            margin-left: 4px;
-            animation: blink .6s infinite;
+            animation: blink .7s infinite;
         }
 
         @keyframes blink {
@@ -109,11 +105,10 @@
             }
         }
 
-        /* Ký tên */
         .signature {
             text-align: right;
-            font-size: 14px;
             color: #666;
+            font-size: 14px;
             margin-top: 18px;
         }
 
@@ -122,7 +117,7 @@
             color: #ff2d89;
         }
 
-        /* Tim bay */
+        /* EFFECTS */
         .heart {
             position: fixed;
             width: 16px;
@@ -130,7 +125,7 @@
             background: #ff6fab;
             transform: rotate(-45deg);
             animation: fly 6s linear infinite;
-            opacity: 0.5;
+            opacity: .5;
             z-index: 1;
         }
 
@@ -150,8 +145,8 @@
         }
 
         .heart:after {
-            left: 8px;
             top: 0;
+            left: 8px;
         }
 
         @keyframes fly {
@@ -166,7 +161,6 @@
             }
         }
 
-        /* Sparkle lấp lánh */
         .sparkle {
             position: fixed;
             width: 6px;
@@ -175,7 +169,7 @@
             border-radius: 50%;
             box-shadow: 0 0 12px white;
             animation: sparkleMove 4s infinite linear;
-            opacity: 0.8;
+            opacity: .8;
             z-index: 2;
         }
 
@@ -189,7 +183,6 @@
             }
         }
 
-        /* Hoa rơi */
         .flower {
             position: fixed;
             top: -40px;
@@ -208,66 +201,52 @@
                 top: 120vh;
             }
         }
-
-        @keyframes fadeContent {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
     </style>
 </head>
 
 <body>
 
+    <!-- HEARTS -->
     <script>
-        /* TIM BAY */
         for (let i = 0; i < 18; i++) {
             let h = document.createElement("div");
             h.className = "heart";
             h.style.left = Math.random() * 100 + "vw";
-            h.style.animationDuration = 4 + Math.random() * 4 + "s";
-            h.style.animationDelay = Math.random() * 3 + "s";
+            h.style.animationDuration = (4 + Math.random() * 4) + "s";
             document.body.appendChild(h);
         }
 
-        /* LẤP LÁNH */
         for (let i = 0; i < 25; i++) {
             let s = document.createElement("div");
             s.className = "sparkle";
             s.style.left = Math.random() * 100 + "vw";
             s.style.top = Math.random() * 100 + "vh";
-            s.style.animationDuration = 2 + Math.random() * 3 + "s";
+            s.style.animationDuration = (3 + Math.random() * 3) + "s";
             document.body.appendChild(s);
         }
 
-        /* HOA RƠI */
         const flowers = ["🌸", "💮", "🌺", "🌷"];
         for (let i = 0; i < 12; i++) {
             let f = document.createElement("div");
             f.className = "flower";
             f.textContent = flowers[Math.floor(Math.random() * flowers.length)];
             f.style.left = Math.random() * 100 + "vw";
-            f.style.animationDuration = 4 + Math.random() * 4 + "s";
-            f.style.animationDelay = Math.random() * 3 + "s";
+            f.style.animationDuration = (4 + Math.random() * 4) + "s";
             document.body.appendChild(f);
         }
     </script>
 
     <div class="card">
-
-        <!-- ẢNH — THAY LINK CỦA EM VÀO DÒNG DƯỚI -->
-        <img src="image.jpg" class="photo" width="50%">
+        <img src="image.jpg" class="photo">
 
         <h1>Chúc mừng 20/11 💐</h1>
-
         <p class="subtitle">Gửi đến 'Chị giáo' trong lòng anh.</p>
 
-        <p class="message" id="text"></p>
-        <span class="cursor"></span>
+        <!-- Typing mượt không giật -->
+        <div class="typing-container">
+            <p class="message" id="text"></p>
+            <div class="cursor" id="cursor"></div>
+        </div>
 
         <p class="signature">
             Thương em,<br>
@@ -275,6 +254,7 @@
         </p>
     </div>
 
+    <!-- TYPING SCRIPT FIX CHUẨN -->
     <script>
         const content =
             `Chúc em một ngày 20/11 thật nhẹ nhàng, xinh đẹp và đầy những điều khiến em mỉm cười.
@@ -290,11 +270,27 @@ Nếu có lúc nào đó em mệt hay buồn,
 hãy nhớ rằng vẫn có một người luôn âm thầm thương em hơn em nghĩ… là anh. 💖`;
 
         let i = 0;
-        const speed = 42;
+        const speed = 35;
 
         function typeWriter() {
-            if (i < content.length) {
-                document.getElementById("text").innerHTML += content.charAt(i);
+            const textEl = document.getElementById("text");
+            const cursor = document.getElementById("cursor");
+
+            if (i <= content.length) {
+                textEl.textContent = content.substring(0, i);
+
+                // Lấy vị trí cuối chữ
+                const range = document.createRange();
+                range.setStart(textEl.firstChild || textEl, textEl.textContent.length);
+                range.setEnd(textEl.firstChild || textEl, textEl.textContent.length);
+
+                const rect = range.getBoundingClientRect();
+                const parentRect = textEl.getBoundingClientRect();
+
+                // Đặt cursor không gây giật
+                cursor.style.left = (rect.right - parentRect.left) + "px";
+                cursor.style.top = (rect.top - parentRect.top) + "px";
+
                 i++;
                 setTimeout(typeWriter, speed);
             }
