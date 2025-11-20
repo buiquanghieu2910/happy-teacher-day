@@ -201,6 +201,27 @@
                 top: 120vh;
             }
         }
+
+        .music-btn {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: #ff4d97;
+            color: white;
+            border: none;
+            padding: 10px 12px;
+            font-size: 18px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(255, 0, 140, 0.3);
+            transition: 0.2s;
+            z-index: 99;
+        }
+
+        .music-btn:hover {
+            transform: scale(1.15);
+            background: #ff2e86;
+        }
     </style>
 </head>
 
@@ -237,6 +258,13 @@
     </script>
 
     <div class="card">
+        <!-- <button class="music-btn" onclick="toggleMusic()">
+            🎵
+        </button> -->
+        <audio id="bgm" loop>
+            <source src="audio.mp3" type="audio/mpeg">
+        </audio>
+
         <img src="image.jpg" class="photo">
 
         <h1>Chúc mừng 20/11 💐</h1>
@@ -297,6 +325,19 @@ hãy nhớ rằng vẫn có một người luôn âm thầm thương em hơn em 
         }
 
         typeWriter();
+
+        function toggleMusic() {
+            const music = document.getElementById("bgm");
+
+            if (music.paused) {
+                music.play();
+            } else {
+                music.pause();
+            }
+        }
+        const music = document.getElementById("bgm");
+        music.play();
+
     </script>
 
 </body>
